@@ -1,0 +1,37 @@
+services:
+    mysql:
+        container_name: container-bd
+        image: gabrielsousasptech/image-beyond-bd:latest
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: urubu100
+            MYSQL_DATABASE: beyond_db
+        volumes:
+            - ./scripts_sql:/docker-entrypoint-initdb.d
+            - mysql_data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+
+    aplicacao-web:
+        container_name: container-web
+        image: gabrielsousasptech/image-beyond-web:latest
+        restart: always
+        environment:
+                AMBIENTE_PROCESSO: desenvolvimento
+                DB_HOST: mysql
+                DB_DATABASE: beyond_db
+                DB_USER: root
+                DB_PASSWORD: urubu100
+                APP_HOST: 18.205.88.137
+        ports:
+            - "3333:3333"
+            - "8080:8080"
+
+    aplicacao-etl:
+        container_name: container-etl
+        image: gabrielsousasptech/image-beyond-etl:latest
+
+volumes:
+    mysql_data:
+
+
