@@ -45,3 +45,4 @@ Este repositório contém os arquivos necessários para inicializar a infraestru
 Caso tenha dúvidas ou sugestões, entre em contato com a equipe de desenvolvimento:
 
 📧 gabriel.sousa@sptech.school
+📧 fillipe.coelho@sptech.school
