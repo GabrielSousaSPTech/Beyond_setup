@@ -11,6 +11,10 @@ expect "container-etl"
 # Iniciar o comando para rodar o JAR dentro do contêiner
 spawn bash -c "sudo docker exec -i container-etl java -jar /app/beyond_ETL/ETLbba/target/BeyondETL.jar"
 
+expect -re "TOKEN_SLACK:" {
+    send "\r"
+}
+
 expect -re "BD_HOST:" {
     send "$IP_PUBLICO\r"
 }
